@@ -1,2 +1,2 @@
 # PinterestClone
-primer cambio para un fork
+mi primer cambio para un pull
