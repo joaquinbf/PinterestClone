@@ -1,2 +1,2 @@
 # PinterestClone
-mi primer cambio para un pull
+mi primer cambio desde vscode
