@@ -1,39 +1,50 @@
+/* Google Font */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
-/* Creamos algunas variables en css */
+/* Variables */
 :root {
-  --fuente: "Roboto", sans-serif;
+  --blanco: white;
+  --negro: black;
   --gris: #efefef;
-  --width-icon: 1.5rem;
-  --height-icon: 1.5rem;
+  --fuente-principal: "Roboto", sans-serif;
+  --espaciado-vertical: 16px;
+  --espaciado-horizontal: 20px;
+  --tamanio-iconos: 24px;
+  --bordes-redondos: 24px;
 
-  --margin-section: 1rem;
+  --ancho-columnas: 256px;
+  --alto-filas: 16px;
 }
 
-/* Definimos una medida estandar para 1 rem */
-html {
-  font-size: 16px;
+/* Elinando estilos por defecto */
+button {
+  border: none;
+  outline-style: none;
 }
 
-body {
-  font-family: var(--fuente);
+a {
+  text-decoration: none;
 }
 
-/* Definimos al header como una caja flexible
- para alinear todos los elementos que contiene */
+input {
+  border: none;
+  outline-style: none;
+}
+
+/* Encabezados */
 header {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  margin: var(--margin-section);
+  padding: var(--espaciado-vertical) var(--espaciado-horizontal);
 }
 
-/* Creamos el icono home de Pinterest */
+/* iconos */
+
 .icon {
-  padding: 1rem;
+  padding: var(--espaciado-vertical);
   border-radius: 50%;
-  background-color: white;
+  background-color: var(--blanco);
 }
 
 .icon:hover {
@@ -41,157 +52,115 @@ header {
 }
 
 .icon > div {
-  width: var(--width-icon);
-  height: var(--height-icon);
   background-position: center;
-  background-size: contain;
-  border-radius: 50%;
+  background-size: cover;
+  height: var(--tamanio-iconos);
+  width: var(--tamanio-iconos);
 }
 
-/* Definimos una imagen como fondo. Esta es otra forma de integrar iconos */
 .icon-home > div {
-  background-image: url("../img/icon_pinterest.png");
+  background-image: url(../img/icon_pinterest.png);
 }
 
-/* Eliminamos el estilo que se aplica sobre los enlaces por defecto */
-a {
-  text-decoration: none;
-}
-
-/* Aplicamos estilos personalizados sobre los enlaces */
-.a-header {
-  padding: 1rem 1.2rem;
-  border-radius: 1.5rem;
-}
-
-.a-header-black {
-  background-color: black;
-  color: white;
-}
-
-.a-header-white {
-  background-color: white;
-  color: black;
-}
-
-.a-header-white:hover {
-  background-color: var(--gris);
-}
-
-/* Eliminamos el estilo que se aplica sobre los botones por defecto */
-
-button {
-  border: none;
-  background-color: none;
-}
-
-button:focus {
-  outline: none;
-}
-
-/* Aplicamos fondos sobre el resto de los botones */
 .icon-notification > div {
-  background-image: url("../img/icon_jingle.png");
+  background-image: url(../img/icon_jingle.png);
 }
 
 .icon-message > div {
-  background-image: url("../img/icon_bubble_notification_2.png");
+  background-image: url(../img/icon_bubble_notification.png);
 }
 
-.icon-menu > div {
-  background-image: url("../img/icon_arrow_down.png");
+.icon-arrow > div {
+  background-image: url(../img/icon_arrow_down.png);
 }
 
-/* Existen varias formas de centrar una imagen en un enlace. 
-En este caso, simplemente encierro la imagen dentro de un div */
 .icon-profile > div > img {
   width: 100%;
   border-radius: 50%;
 }
 
-/* Aplicamos estilos sobre el buscador principal */
-
-/* Eliminamos el estilo que se aplica sobro los input por defecto */
-
-form > input {
-  border: none;
+/* Botones */
+.btn {
+  font-family: var(--fuente-principal);
+  padding: var(--espaciado-vertical) var(--espaciado-horizontal);
+  border-radius: var(--bordes-redondos);
+  font-weight: bold;
 }
 
-form > input:focus {
-  outline: none;
+.btn-black {
+  color: var(--blanco);
+  background-color: var(--negro);
 }
 
-.search {
+.btn-white {
+  color: var(--negro);
+  background-color: var(--blanco);
+}
+
+.btn-white:hover {
   background-color: var(--gris);
-  padding: 1rem;
-  border-radius: 1.5rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+}
 
-  /* Solicitamos mediante flex que se ocupe todo el espacio libre disponible */
-  flex-grow: 1;
+/* buscador */
 
-  /* Hacemos una caja flexible para alinear todos los elementos */
+.form-search {
   display: flex;
-}
-
-.search > input {
+  align-items: center;
+  flex-grow: 1;
+  font-family: var(--fuente-principal);
   background-color: var(--gris);
-  width: 100%;
+  border-radius: var(--bordes-redondos);
+  padding: var(--espaciado-vertical) var(--espaciado-horizontal);
 }
 
-.search > div {
-  width: var(--width-icon);
-  height: var(--height-icon);
+.form-search > div {
+  background-image: url(../img/icon_search.png);
+  display: inline-block;
   background-position: center;
-  background-size: contain;
-  background-image: url("../img/icon_search.png");
+  background-size: cover;
+  height: var(--tamanio-iconos);
+  width: var(--tamanio-iconos);
 }
 
-/* Maquetamos la seccion principal */
+.form-search > input {
+  background-color: transparent;
+}
 
-/* Definimos al main como una grilla con columnas de 16 rem
- para distribuir todos los elementos que contiene, con una 
- separacion de 1rem */
+/* Galeria principal */
+
 main {
-  margin: var(--margin-section);
-
   display: grid;
-  grid-template-columns: repeat(auto-fill, 16rem);
-  grid-template-rows: repeat(auto-fill, 1rem);
-  grid-auto-flow: row dense;
-  justify-content: center;
-}
+  grid-template-columns: repeat(auto-fill, var(--ancho-columnas));
+  grid-auto-rows: var(--alto-filas);
 
-/* Aplicamos estilos a la tarjeta */
+  justify-content: center;
+
+  row-gap: var(--espaciado-vertical);
+  column-gap: var(--espaciado-horizontal);
+}
 
 .card {
-  padding: 0.5rem;
-}
-.card > div > img {
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: var(--ancho-columnas);
 }
 
-.card > p {
+.card > h3 {
   margin: 0;
 }
 
-.card-lg {
-  grid-row-end: span 23;
+.card > img {
+  width: 100%;
+  border-radius: var(--bordes-redondos);
+  flex-grow: 1;
 }
 
-.card-xl > div {
-  height: 22rem;
-}
-.card-xl {
-  grid-row-end: span 23;
-}
-
-.card-sm > div {
-  height: 14rem;
-}
 .card-sm {
-  grid-row-end: span 15;
+  grid-row-end: span 8;
+}
+.card-m {
+  grid-row-end: span 12;
+}
+.card-lg {
+  grid-row-end: span 14;
 }

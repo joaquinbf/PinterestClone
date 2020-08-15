@@ -1,2 +1,2 @@
 # PinterestClone
-primer commit
+mi primer cambio desde vscode
