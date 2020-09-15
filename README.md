@@ -1,2 +1,2 @@
 # PinterestClone
-mi primer cambio desde vscode
+mi replit con PinterestClone
